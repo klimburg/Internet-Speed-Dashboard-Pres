@@ -42,11 +42,34 @@
 
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
-  <hgroup>
-    <h2>Introduction</h2>
-  </hgroup>
   <article data-timings="">
-    <p>A home internet speed monitoring web application built in shiny framework for R. The data is collected using <a href="https://github.com/Janhouse/tespeed">Janhouse/tespeed</a> python tool which allows internet speed testing via <a href="http://www.speedtest.net">http://www.speedtest.net</a> from a command line interface. This application was built as a project for the Coursera Data Science Specialization Developing Data Products class. The source files can all be found <a href="https://github.com/klimburg/InternetSpeedDash">here</a>.</p>
+    <!-- Limit image width and height -->
+
+<style type='text/css'>
+img {
+    max-height: 500px;
+    max-width: 800px;
+}
+</style>
+
+<!-- Center image on slide -->
+
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+
+<script type='text/javascript'>
+$(function() {
+    $("p:has(img)").addClass('centered');
+});
+</script>    
+
+<h2>Introduction</h2>
+
+<ul>
+<li>An internet speed monitoring app built in the Shiny web framework for R. </li>
+<li>The data is collected using <a href="https://github.com/Janhouse/tespeed">Janhouse/tespeed</a> python tool which allows internet speed testing via <a href="http://www.speedtest.net">http://www.speedtest.net</a> from a command line interface.</li>
+<li>This application was built as a project for the Coursera Data Science Specialization Developing Data Products class.</li>
+<li>The source files can all be found at <a href="https://github.com/klimburg/InternetSpeedDash">https://github.com/klimburg/InternetSpeedDash</a>.</li>
+</ul>
 
   </article>
   <!-- Presenter Notes -->
@@ -54,20 +77,32 @@
 
 <slide class="" id="slide-2" style="background:;">
   <hgroup>
-    <h2>Slide 2</h2>
+    <h2>Features</h2>
   </hgroup>
   <article data-timings="">
-    
+    <ul>
+<li>Application displays time series and histogram of download and upload speeds.</li>
+<li>Filterable by date, internet plan speed and server.</li>
+</ul>
+
+<p><img src="assets/img/ScreenCap.png" alt="screenCap"></p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-3" style="background:;">
   <hgroup>
-    <h2>Slide 3</h2>
+    <h2>Compare Actual vs. Advertised</h2>
   </hgroup>
   <article data-timings="">
-    
+    <ul>
+<li>Do you wonder if you are getting the speeds that you pay for?</li>
+<li>Compare actual vs. advertised speeds</li>
+</ul>
+
+<p><img src="assets/img/ComparePlans.png" alt="compare plans"></p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
@@ -98,19 +133,19 @@
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Introduction'>
+        data-slide=1 title=''>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Slide 2'>
+        data-slide=2 title='Features'>
          2
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='Slide 3'>
+        data-slide=3 title='Compare Actual vs. Advertised'>
          3
       </a>
     </li>
