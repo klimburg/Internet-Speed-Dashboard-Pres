@@ -29,7 +29,7 @@ $(function() {
 
 ## Introduction
 
-* An internet speed monitoring app built in the Shiny web framework for R. 
+* An [internet speed monitoring app](https://klimburg.shinyapps.io/InternetSpeedDash/) built in the Shiny web framework for R. 
 * The data is collected using [Janhouse/tespeed](https://github.com/Janhouse/tespeed) python tool which allows internet speed testing via http://www.speedtest.net from a command line interface.
 * This application was built as a project for the Coursera Data Science Specialization Developing Data Products class.
 * The source files can all be found at [https://github.com/klimburg/InternetSpeedDash](https://github.com/klimburg/InternetSpeedDash).
@@ -62,7 +62,7 @@ It should be noted that other factors besides the advertised speed of your inter
 
 An example of this can be seen when looking at the speeds by server when I had Comcast's 25 Mbit/Sec download speed. 
 
-```{r slowServer, echo=FALSE, fig.align='center', fig.height=4, fig.width=8, warning=FALSE, message=FALSE}
+```{r slowServer, echo=FALSE, fig.keep='none', warning=FALSE, message=FALSE}
 library(dplyr)
 library(ggplot2)
 
@@ -80,12 +80,14 @@ minServer<-df%>%filter(ad.speed == 25)%>%
                                  stdev = sd(Download))%>%head(1)
 
 df.plot<-df%>%filter(ad.speed == 25)
-ggplot(df.plot)+
+p1<-ggplot(df.plot)+
     geom_boxplot(aes(x=server,y=Download, fill = server))+
     labs(y="Download Speed (Mb/s)", title = "Boxplots of Download Speed by Server\n 25 Mb/s DL Speed Advertised")+
     theme(legend.position = "none")+
     coord_flip()
+ggsave("/home/kevin/Coursera/DataSci/DataProds/InternetSpeedDash/Internet-Speed-Dashboard-Pres/assets/img/boxplot1.png",p1,width = 8, height = 4, dpi = 72)
 ```
+![boxplot](assets/img/boxplot1.png)
 
 The plot shows that the `r  as.character(minServer$server)` server behaves differently from the rest, with a median download speed of `r minServer$median` Mb/s while the others have median values of approximately 30 Mb/s. 
 
@@ -100,5 +102,6 @@ Many improvements could be added to improve this application:
 Some improvements would require more modifications of tespeed.py or the cronjob running it
 * Track ping speed
 * Take measurements from multiple servers on each attempt to allow comparisions across servers at the same time
+* Automate pushing new data to shinyapps.io on a regular basis
 
 

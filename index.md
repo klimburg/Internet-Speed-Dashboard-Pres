@@ -29,7 +29,7 @@ $(function() {
 
 ## Introduction
 
-* An internet speed monitoring app built in the Shiny web framework for R. 
+* An [internet speed monitoring app](https://klimburg.shinyapps.io/InternetSpeedDash/) built in the Shiny web framework for R. 
 * The data is collected using [Janhouse/tespeed](https://github.com/Janhouse/tespeed) python tool which allows internet speed testing via http://www.speedtest.net from a command line interface.
 * This application was built as a project for the Coursera Data Science Specialization Developing Data Products class.
 * The source files can all be found at [https://github.com/klimburg/InternetSpeedDash](https://github.com/klimburg/InternetSpeedDash).
@@ -62,7 +62,8 @@ It should be noted that other factors besides the advertised speed of your inter
 
 An example of this can be seen when looking at the speeds by server when I had Comcast's 25 Mbit/Sec download speed. 
 
-<img src="assets/fig/slowServer.png" title="plot of chunk slowServer" alt="plot of chunk slowServer" style="display: block; margin: auto;" />
+
+![boxplot](assets/img/boxplot1.png)
 
 The plot shows that the chi.ookla.towerstream.net server behaves differently from the rest, with a median download speed of 10.41 Mb/s while the others have median values of approximately 30 Mb/s. 
 
