@@ -56,12 +56,49 @@ $(function() {
 
 ---
 
-## Slide 4
+## Limitations
+
+It should be noted that other factors besides the advertised speed of your internet plan may affect the recorded speeds, such as the server responsible for the content.
+
+An example of this can be seen when looking at the speeds by server when I had Comcast's 25 Mbit/Sec download speed. 
+
+```{r slowServer, echo=FALSE, fig.align='center', fig.height=4, fig.width=8, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+
+df<-read.csv(file = "../data/speedtest.csv", header = F)
+names(df) <- c("date.time", "Download", "Upload", "units", "server")
+df$date.time <- as.POSIXct(df$date.time, origin = '1970-01-01')
+df$server <- str_replace_all(df$server,pattern = "\\[\\'http:\\/\\/","")
+df$server <- str_replace_all(df$server,pattern = "\\/speedtest\\/\\'\\]","")
+df$server <- as.factor(df$server)
+df$units<-paste0(df$units,"/sec")
+df$ad.speed<-ifelse(df$date.time>as.POSIXct('2014-09-23 13:00:00'),105,25)
+
+minServer<-df%>%filter(ad.speed == 25)%>%
+    group_by(server)%>%summarise(median = median(Download),
+                                 stdev = sd(Download))%>%head(1)
+
+df.plot<-df%>%filter(ad.speed == 25)
+ggplot(df.plot)+
+    geom_boxplot(aes(x=server,y=Download, fill = server))+
+    labs(y="Download Speed (Mb/s)", title = "Boxplots of Download Speed by Server\n 25 Mb/s DL Speed Advertised")+
+    theme(legend.position = "none")+
+    coord_flip()
+```
+
+The plot shows that the `r  as.character(minServer$server)` server behaves differently from the rest, with a median download speed of `r minServer$median` Mb/s while the others have median values of approximately 30 Mb/s. 
 
 ---
 
-## Slide 5
+## Future Improvements
 
+Many improvements could be added to improve this application:
+* Add a predictive forecast for future speeds, factors could include day of the week and time of day.
+* Add boxplots and other exploratory analysis tools
 
+Some improvements would require more modifications of tespeed.py or the cronjob running it
+* Track ping speed
+* Take measurements from multiple servers on each attempt to allow comparisions across servers at the same time
 
 

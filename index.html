@@ -109,20 +109,40 @@ $(function() {
 
 <slide class="" id="slide-4" style="background:;">
   <hgroup>
-    <h2>Slide 4</h2>
+    <h2>Limitations</h2>
   </hgroup>
   <article data-timings="">
-    
+    <p>It should be noted that other factors besides the advertised speed of your internet plan may affect the recorded speeds, such as the server responsible for the content.</p>
+
+<p>An example of this can be seen when looking at the speeds by server when I had Comcast&#39;s 25 Mbit/Sec download speed. </p>
+
+<p><img src="assets/fig/slowServer.png" title="plot of chunk slowServer" alt="plot of chunk slowServer" style="display: block; margin: auto;" /></p>
+
+<p>The plot shows that the chi.ookla.towerstream.net server behaves differently from the rest, with a median download speed of 10.41 Mb/s while the others have median values of approximately 30 Mb/s. </p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="" id="slide-5" style="background:;">
   <hgroup>
-    <h2>Slide 5</h2>
+    <h2>Future Improvements</h2>
   </hgroup>
   <article data-timings="">
-    
+    <p>Many improvements could be added to improve this application:</p>
+
+<ul>
+<li>Add a predictive forecast for future speeds, factors could include day of the week and time of day.</li>
+<li>Add boxplots and other exploratory analysis tools</li>
+</ul>
+
+<p>Some improvements would require more modifications of tespeed.py or the cronjob running it</p>
+
+<ul>
+<li>Track ping speed</li>
+<li>Take measurements from multiple servers on each attempt to allow comparisions across servers at the same time</li>
+</ul>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
@@ -151,13 +171,13 @@ $(function() {
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Slide 4'>
+        data-slide=4 title='Limitations'>
          4
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title='Slide 5'>
+        data-slide=5 title='Future Improvements'>
          5
       </a>
     </li>

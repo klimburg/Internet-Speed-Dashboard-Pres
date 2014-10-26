@@ -1,3 +1,8 @@
 base
+dplyr
+ggplot2
+lubridate
 markdown
+reshape2
 shiny
+stringr

@@ -56,12 +56,26 @@ $(function() {
 
 ---
 
-## Slide 4
+## Limitations
+
+It should be noted that other factors besides the advertised speed of your internet plan may affect the recorded speeds, such as the server responsible for the content.
+
+An example of this can be seen when looking at the speeds by server when I had Comcast's 25 Mbit/Sec download speed. 
+
+<img src="assets/fig/slowServer.png" title="plot of chunk slowServer" alt="plot of chunk slowServer" style="display: block; margin: auto;" />
+
+The plot shows that the chi.ookla.towerstream.net server behaves differently from the rest, with a median download speed of 10.41 Mb/s while the others have median values of approximately 30 Mb/s. 
 
 ---
 
-## Slide 5
+## Future Improvements
 
+Many improvements could be added to improve this application:
+* Add a predictive forecast for future speeds, factors could include day of the week and time of day.
+* Add boxplots and other exploratory analysis tools
 
+Some improvements would require more modifications of tespeed.py or the cronjob running it
+* Track ping speed
+* Take measurements from multiple servers on each attempt to allow comparisions across servers at the same time
 
 
